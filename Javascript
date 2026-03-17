@@ -1,0 +1,66 @@
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // 1. Sticky Header Effect
+    const header = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    });
+
+    // 2. Intersection Observer for Scroll Animations
+    const sections = document.querySelectorAll('.section-hidden');
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('section-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // 3. Interactive Flavor Experience
+    // Dr Pepper's exact 23 flavors are a secret, but here are the rumored ones!
+    const flavors = [
+        "Amaretto", "Almond", "Blackberry", "Black Licorice", "Caramel", 
+        "Carrot", "Clove", "Cherry", "Cola", "Ginger", "Juniper", 
+        "Lemon", "Molasses", "Nutmeg", "Orange", "Prune", "Plum", 
+        "Pepper", "Root Beer", "Rum", "Raspberry", "Tomato", "Vanilla"
+    ];
+
+    const flavorGrid = document.getElementById('flavor-grid');
+    const flavorDisplay = document.getElementById('flavor-display');
+
+    flavors.forEach((flavor, index) => {
+        const bubble = document.createElement('div');
+        bubble.classList.add('flavor-bubble');
+        bubble.innerText = index + 1; // Show numbers 1-23
+
+        // Interaction logic
+        bubble.addEventListener('mouseenter', () => {
+            flavorDisplay.innerHTML = `<h3>${flavor}</h3>`;
+        });
+        
+        bubble.addEventListener('mouseleave', () => {
+            flavorDisplay.innerHTML = `<h3>Hover a flavor!</h3>`;
+        });
+
+        flavorGrid.appendChild(bubble);
+    });
+
+    // 4. Form Submission Prevention (for demo purposes)
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thanks for subscribing to Pepper Perks!');
+            contactForm.reset();
+        });
+    }
+});
