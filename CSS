@@ -1,0 +1,335 @@
+/* --- Base Styles & Variables --- */
+:root {
+    --dp-red: #711F25;
+    --dp-dark: #4A1418;
+    --black: #111111;
+    --white: #ffffff;
+    --gray: #f4f4f4;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif;
+    color: var(--black);
+    background-color: var(--gray);
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+/* --- Typography & Buttons --- */
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--dp-red);
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: var(--dp-red);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--black);
+}
+
+.btn-secondary {
+    background: var(--white);
+    color: var(--dp-red);
+}
+
+.btn-secondary:hover {
+    background: var(--black);
+    color: var(--white);
+}
+
+/* --- Navigation --- */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    transition: var(--transition);
+    z-index: 1000;
+}
+
+header.scrolled {
+    background: var(--dp-red);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--white);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: #ffd700; /* Subtle gold accent */
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(17, 17, 17, 0.7), rgba(113, 31, 37, 0.8)), url('https://via.placeholder.com/1920x1080/711F25/ffffff?text=Background+Image') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    padding: 0 2rem;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+}
+
+.hero-content h1.highlight {
+    color: var(--dp-red);
+    background: var(--white);
+    display: inline-block;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-inline: auto;
+}
+
+/* --- Grid Layouts (Products & Merch) --- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.placeholder-img {
+    height: 200px;
+    background: #e0e0e0;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #888;
+}
+
+.card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--dp-red);
+}
+
+.nutrition {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* --- About Timeline --- */
+.about {
+    background: var(--white);
+}
+
+.timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.timeline-item h3 {
+    font-size: 2rem;
+    color: var(--dp-red);
+    margin-bottom: 1rem;
+}
+
+/* --- Interactive Flavors --- */
+.flavors {
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+}
+
+.flavors h2 {
+    color: var(--white);
+}
+
+.flavor-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 3rem 0;
+}
+
+.flavor-bubble {
+    width: 60px;
+    height: 60px;
+    background: var(--dp-red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.flavor-bubble:hover {
+    background: var(--white);
+    color: var(--dp-red);
+    transform: scale(1.2);
+}
+
+.flavor-display {
+    min-height: 50px;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #ffd700;
+}
+
+/* --- Promo Banner --- */
+.promo {
+    background: var(--dp-red);
+    color: var(--white);
+    text-align: center;
+    padding: 6rem 2rem;
+}
+
+.promo-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* --- Footer --- */
+footer {
+    background: var(--black);
+    color: var(--white);
+    padding: 4rem 2rem 2rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 2rem;
+}
+
+.footer-grid h3 {
+    margin-bottom: 1rem;
+}
+
+#contact-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+#contact-form input {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    flex: 1;
+}
+
+.social-links a {
+    color: var(--white);
+    text-decoration: none;
+    margin-right: 0.5rem;
+}
+
+.social-links a:hover {
+    color: var(--dp-red);
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* --- Animations & Utilities --- */
+.section-hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.section-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .nav-links { display: none; } /* Add hamburger menu for prod */
+    .hero-content h1 { font-size: 2.5rem; }
+    #contact-form { flex-direction: column; }
+}
+
